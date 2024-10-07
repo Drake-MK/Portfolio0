@@ -1,0 +1,38 @@
+/* Basic styling */
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-image 0.5s ease;
+}
+
+/* Hover effect to change background based on data attribute */
+.skill:hover {
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* Set default background */
+body {
+    background-color: #1e1e1e;
+}
+
+/* Skill-specific hover */
+.skill:hover {
+    background-image: none;
+}

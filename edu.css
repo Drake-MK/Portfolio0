@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light gray text color for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 1rem;
+    margin: 0; /* Ensure no margin around the body */
+}
+
+.construction-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2a2a2a; /* Slightly lighter dark gray for the container */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 100%; /* Full width on mobile */
+    margin: auto; /* Center align for mobile */
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.construction-container:hover {
+    transform: scale(1.05); /* Slightly enlarge the box on hover */
+}
+
+h1 {
+    font-size: 2.5rem; /* Adjusted font size for mobile */
+    color: #4b6f47; /* Deep green color */
+    margin-bottom: 1rem;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+h1:hover {
+    color: #f0e68c; /* Light yellow on hover for whole heading */
+}
+
+h1 span {
+    display: block;
+    font-size: 1.3rem; /* Adjusted font size for mobile */
+    color: #6a9a6b; /* Lighter green for emphasis */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+h1 span:hover {
+    color: #f0e68c; /* Light yellow on hover for span only */
+}
+
+.construction-icon {
+    font-size: 3.5rem; /* Slightly smaller icon size for better mobile view */
+    color: #4b6f47; /* Deep green for the icon */
+    margin: 1rem 0;
+    animation: rotate 2s infinite linear;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.construction-icon:hover {
+    color: #f0e68c; /* Light yellow on hover */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+p {
+    font-size: 1.1rem; /* Slightly smaller for mobile */
+    color: #e0e0e0;
+    margin: 1rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #4b6f47; /* Deep green background */
+    color: black; /* Button text color */
+    border-radius: 5rem;
+    text-decoration: none;
+    font-size: 1.3rem; /* Adjusted font size for mobile */
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #6a9a6b; /* Lighter green on hover */
+}
+
+/* Responsive adjustments for small screens (mobiles) */
+@media (max-width: 768px) {
+    body {
+        height: auto; /* Allow scrolling if content exceeds screen height */
+        padding: 2rem; /* Add more padding for small screens */
+    }
+
+    .construction-container {
+        padding: 1.5rem; /* Adjust container padding */
+    }
+
+    h1 {
+        font-size: 2rem; /* Smaller font size on mobile */
+    }
+
+    h1 span {
+        font-size: 1.1rem; /* Smaller font size on mobile */
+    }
+
+    .construction-icon {
+        font-size: 3rem; /* Smaller icon for mobile */
+    }
+
+    p {
+        font-size: 1rem; /* Smaller text for mobile */
+    }
+
+    .btn {
+        font-size: 1.2rem; /* Smaller button text for mobile */
+    }
+}
+
+/* Ultra-small screens (less than 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h1 span {
+        font-size: 1rem;
+    }
+
+    .construction-icon {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem; /* Adjust padding for ultra-small screens */
+    }
+}

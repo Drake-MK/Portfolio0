@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #000; /* Black background */
+    color: #eaeaea; /* Light gray text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.construction-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000; /* Black background */
+    padding: 1rem;
+}
+
+.construction-content {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1c1c1c; /* Slight contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+    max-width: 90vw; /* Adjust for smaller screens */
+}
+
+.construction-content:hover {
+    transform: scale(1.02); /* Subtle hover effect */
+}
+
+h1 {
+    font-size: 3rem; /* Reduced font size for mobile */
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #eaeaea;
+}
+
+h1 span {
+    color: #1e90ff; /* Deep blue accent */
+}
+
+.construction-icon {
+    font-size: 4rem; /* Reduced size for mobile */
+    color: #1e90ff; /* Deep blue icon */
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 1.5rem; /* Reduced size for mobile */
+    color: #d3d3d3; /* Lighter gray */
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    color: #eaeaea;
+    font-size: 1.4rem; /* Slightly smaller button size */
+    border: 1px solid #1e90ff; /* Deep blue border */
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #1e90ff; /* Deep blue on hover */
+    color: #1c1c1c; /* Lighter black text */
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.5); /* Soft blue glow */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    .construction-container {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+    .construction-icon {
+        font-size: 3.2rem;
+    }
+
+    .btn {
+        padding: 1rem 1.8rem;
+        font-size: 1.4rem;
+    }
+}
+
+/* Media Query for Extra Small Screens */
+@media (max-width: 480px) {
+    .construction-container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .construction-icon {
+        font-size: 2.8rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.6rem;
+        font-size: 1.2rem;
+    }
+}
