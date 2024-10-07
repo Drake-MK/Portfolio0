@@ -1,114 +1,92 @@
-/* Global body styling */
-body {
+/* Global body and html styling */
+html, body {
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text color */
+    width: 100%;
+    height: 100vh;
     font-family: 'Arial', sans-serif;
+    background-color: #111;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    color: #1abc9c; /* Teal color */
-}
-
-/* Skills container */
-.skills {
-    display: flex; /* Use flexbox for vertical columns */
-    flex-direction: column; /* Arrange items in a column */
-    gap: 30px; /* Space between cards */
-    margin-top: 60px; /* Margin above skills */
-    position: relative; /* To position the dotted lines */
-}
-
-/* Skill cards */
-.skill {
-    display: inline-block; /* Allow width to fit content */
-    background-color: #1e1e1e; /* Dark card background */
-    border: 2px solid #1abc9c; /* Teal border */
-    border-radius: 10px;
-    padding: 15px 20px; /* Padding adjusted for better fit */
-    transition: transform 0.5s ease, background-color 0.5s ease, opacity 0.5s ease; /* Smooth transitions */
-    cursor: pointer;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(50px); /* Shift down */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-    position: relative; /* Position for the spotlight effect */
-    margin: 0 auto; /* Center the skill cards */
-    font-size: 1.1em; /* Slightly increase font size */
-    width: fit-content; /* Adjust width according to content */
-    max-width: 90%; /* Max width for responsiveness */
-}
-
-/* Spotlight effect and reveal on hover */
-.skill:hover {
-    opacity: 1; /* Fully visible on hover */
-    transform: translateY(0); /* Normal position */
-    background: radial-gradient(circle, rgba(26, 188, 156, 0.7), transparent 80%); /* Spotlight effect */
-}
-
-/* Scale effect on hover */
-.skill:hover {
-    transform: scale(1.05); /* Scale effect */
-    background-color: #1abc9c; /* Change background on hover */
-    color: #fff; /* Change text color on hover */
-}
-
-/* Dotted line connecting the skills */
-.skills::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
+/* Section for skills showcase */
+.Section_top {
+    width: 100%;
     height: 100%;
-    width: 2px; /* Width of the dotted line */
-    background: repeating-linear-gradient(
-        to bottom,
-        #1abc9c,
-        #1abc9c 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    transform: translateX(-50%); /* Center the line */
-    z-index: -1; /* Behind the skill cards */
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.5em; /* Adjust heading size for smaller screens */
-    }
-
-    .skill {
-        font-size: 1em; /* Adjust font size for skill cards */
-        padding: 10px 15px; /* Adjust padding for smaller screens */
-    }
-}
-
-/* Global body styling */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text color */
-    font-family: 'Arial', sans-serif;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensure the image covers the section */
     text-align: center;
+    justify-content: center;
+    animation: 10s infinite change ; /* Infinite animation for background */
 }
 
-h1 {
-    color: #1abc9c; /* Teal color */
+/* Pseudo-element for background border */
+.Section_top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid #1abc9c; /* Border color */
+    pointer-events: none; /* Allow clicks through the border */
+    z-index: -1; /* Position it behind the content */
+}
+
+/* Content styling */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+}
+
+.content h1 {
+    color: #fff;
+    font-size: 60px;
+    letter-spacing: 15px;
+}
+
+.content h1 span {
+    color: #111;
+}
+
+.content a {
+    background: #85c1ee;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.content a:hover {
+    background: #034e88;
+    color: #fff;
+}
+
+/* Keyframes for background image animation */
+@keyframes change {
+    0% {
+        background-image: url('5.jpeg');
+    }
+    20% {
+        background-image: url('6.jpeg');
+    }
+    40% {
+        background-image: url('gamedev.jpeg');
+    }
+    60% {
+        background-image: url('model.jpeg');
+    }
+    80% {
+        background-image: url('poetry.jpeg');
+    }
+    100% {
+        background-image: url('story.jpeg');
+    }
 }
 
 /* Skills container */
@@ -124,49 +102,31 @@ h1 {
 .skill {
     display: inline-block;
     background-color: #1e1e1e;
-    border: 2px solid #1abc9c;
+    border: 2px solid #1abc9c; /* Keep border for styling if needed */
     border-radius: 10px;
     padding: 15px 20px;
-    transition: transform 0.5s ease, background-color 0.5s ease, opacity 0.5s ease;
     cursor: pointer;
     opacity: 0; /* Initially hidden */
     transform: translateY(50px); /* Shift down */
+    transition: transform 0.5s ease, opacity 1.5s ease; /* Smooth transition */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
     margin: 0 auto;
     font-size: 1.1em;
     width: fit-content;
     max-width: 90%;
     color: #e0e0e0; /* Text color */
-    background-size: cover; /* Make sure the background image covers the card */
-    background-position: center; /* Center the background image */
 }
 
-/* Hover effect */
-.skill:hover {
+/* Skill fade-in effect */
+.skills .skill {
+    opacity: 0;
+    transition: opacity 2s ease; /* Smooth fade-in */
+}
+
+/* Add a class to trigger fade-in after loading */
+.skills.loaded .skill {
     opacity: 1;
-    transform: scale(1.05);
-    background-color: rgba(26, 188, 156, 0.7); /* Add a semi-transparent color overlay */
-    color: #fff; /* Change text color */
-}
-
-/* Dotted line connecting the skills */
-.skills::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: repeating-linear-gradient(
-        to bottom,
-        #1abc9c,
-        #1abc9c 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    transform: translateX(-50%);
-    z-index: -1;
+    transform: translateY(0); /* Reset transform after the fade-in */
 }
 
 /* Responsive adjustments */
