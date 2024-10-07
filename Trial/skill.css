@@ -4,8 +4,17 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
+    font-family: "Edu AU VIC WA NT Dots", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    background-color: hsl(0, 0%, 7%);
+}
+h1 {
+    font-family: "Edu AU VIC WA NT Dots", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 /* Section for skills showcase */
@@ -16,10 +25,10 @@ html, body {
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; /* Ensure the image covers the section */
+    background-size: cover;
     text-align: center;
     justify-content: center;
-    animation: 10s infinite change ; /* Infinite animation for background */
+    animation: change 30s ease-in-out infinite;
 }
 
 /* Pseudo-element for background border */
@@ -30,9 +39,9 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 10px solid #1abc9c; /* Border color */
-    pointer-events: none; /* Allow clicks through the border */
-    z-index: -1; /* Position it behind the content */
+    border: 10px solid #1abc9c;
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Content styling */
@@ -54,23 +63,86 @@ html, body {
     color: #111;
 }
 
+/* Glowing button effect */
 .content a {
-    background: #85c1ee;
-    padding: 10px 24px;
+    margin: 20px;
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
     text-decoration: none;
+    display: inline-block;
     font-size: 18px;
-    border-radius: 20px;
+    transition: color 2s ease-in-out;
 }
 
-.content a:hover {
-    background: #034e88;
-    color: #fff;
+/* Glow effect background */
+.content a::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+          #ff00ae38,#ff0c6575,  #ff00ae77, #ff0c65,  #ff00ae
+        
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 12px;
+    opacity: 0;
+}
+
+/* Default background after the button */
+.content a::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:#0000004e;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for glowing effect */
+.content a:hover::before {
+    opacity: 1;
+}
+
+/* When the button is clicked */
+.content a:active::after {
+    background: transparent;
+}
+
+/* Active button style */
+.content a:active {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Keyframes for the glowing effect */
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 /* Keyframes for background image animation */
 @keyframes change {
     0% {
-        background-image: url('5.jpeg');
+        background-image: url('bg.jpeg');
     }
     20% {
         background-image: url('6.jpeg');
@@ -87,46 +159,28 @@ html, body {
     100% {
         background-image: url('story.jpeg');
     }
+    120% {
+        background-image: url('5.jpeg');
+    }
 }
 
 /* Skills container */
 .skills {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 60px;
+    gap: 0px;
+    margin-top: 10px;
     position: relative;
 }
 
-/* Skill cards */
-.skill {
-    display: inline-block;
-    background-color: #1e1e1e;
-    border: 2px solid #1abc9c; /* Keep border for styling if needed */
-    border-radius: 10px;
-    padding: 15px 20px;
-    cursor: pointer;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(50px); /* Shift down */
-    transition: transform 0.5s ease, opacity 1.5s ease; /* Smooth transition */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-    font-size: 1.1em;
-    width: fit-content;
-    max-width: 90%;
-    color: #e0e0e0; /* Text color */
-}
-
-/* Skill fade-in effect */
 .skills .skill {
     opacity: 0;
-    transition: opacity 2s ease; /* Smooth fade-in */
+    transition: opacity 2s ease;
 }
 
-/* Add a class to trigger fade-in after loading */
 .skills.loaded .skill {
     opacity: 1;
-    transform: translateY(0); /* Reset transform after the fade-in */
+    transform: translateY(0);
 }
 
 /* Responsive adjustments */
@@ -140,3 +194,4 @@ html, body {
         padding: 10px 15px;
     }
 }
+

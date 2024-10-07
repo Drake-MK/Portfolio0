@@ -1,38 +1,197 @@
-/* Basic styling */
-.container {
-    text-align: center;
-    margin-top: 50px;
+/* Global body and html styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: "Edu AU VIC WA NT Dots", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    background-color: hsl(0, 0%, 7%);
+}
+h1 {
+    font-family: "Edu AU VIC WA NT Dots", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
+/* Section for skills showcase */
+.Section_top {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 30s ease-in-out infinite;
+}
+
+/* Pseudo-element for background border */
+.Section_top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid #1abc9c;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Content styling */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+}
+
+.content h1 {
+    color: #fff;
+    font-size: 60px;
+    letter-spacing: 15px;
+}
+
+.content h1 span {
+    color: #111;
+}
+
+/* Glowing button effect */
+.content a {
+    margin: 20px;
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    transition: color 2s ease-in-out;
+}
+
+/* Glow effect background */
+.content a::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+          #ff00ae38,#ff0c6575,  #ff00ae77, #ff0c65,  #ff00ae
+        
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 12px;
+    opacity: 0;
+}
+
+/* Default background after the button */
+.content a::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:#0000004e;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for glowing effect */
+.content a:hover::before {
+    opacity: 1;
+}
+
+/* When the button is clicked */
+.content a:active::after {
+    background: transparent;
+}
+
+/* Active button style */
+.content a:active {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Keyframes for the glowing effect */
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Keyframes for background image animation */
+@keyframes change {
+    0% {
+        background-image: url('bg.jpeg');
+    }
+    20% {
+        background-image: url('6.jpeg');
+    }
+    40% {
+        background-image: url('gamedev.jpeg');
+    }
+    60% {
+        background-image: url('model.jpeg');
+    }
+    80% {
+        background-image: url('poetry.jpeg');
+    }
+    100% {
+        background-image: url('story.jpeg');
+    }
+    120% {
+        background-image: url('5.jpeg');
+    }
+}
+
+/* Skills container */
 .skills {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 10px;
+    position: relative;
 }
 
-.skill {
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-image 0.5s ease;
+.skills .skill {
+    opacity: 0;
+    transition: opacity 2s ease;
 }
 
-/* Hover effect to change background based on data attribute */
-.skill:hover {
-    background-size: cover;
-    background-position: center;
-    color: white;
+.skills.loaded .skill {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Set default background */
-body {
-    background-color: #1e1e1e;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .skill {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
 }
 
-/* Skill-specific hover */
-.skill:hover {
-    background-image: none;
-}

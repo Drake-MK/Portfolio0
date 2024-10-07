@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // You can add any background transition for the skill here if needed
         });
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all skill elements
+    const skills = document.querySelectorAll('.skill');
+
+    // Iterate over each skill and assign the background image
+    skills.forEach(skill => {
+        const bgImage = skill.getAttribute('data-bg'); // Get the data-bg value
+        skill.style.backgroundImage = `url(${bgImage})`; // Set as background
+        skill.style.backgroundSize = 'cover'; // Make sure image covers the entire element
+        skill.style.backgroundPosition = 'center'; // Center the background
+    });
+});
 
         // Reset background image on mouse out
         skill.addEventListener('mouseout', function () {
